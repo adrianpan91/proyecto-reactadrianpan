@@ -3,7 +3,7 @@
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  background-color: #f8de7e;
+  background-color: #c7cd83;
   align-items: center;
   padding: 10px;
 }
@@ -15,9 +15,9 @@
   gap: 20px;
 }
 .categories li {
-  background-color: #009d71;
+  background-color: #404866;
   padding: 10px 20px;
-  color: #ffffff;
+  color: #e5ebd2;
   width: 100px;
   display: flex;
   justify-content: center;

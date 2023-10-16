@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CounterPresentacional from "./CounterPresentacional";
 
-const CounterContainer = ({ stock }) => {
+const CounterContainer = ({ stock, onAdd }) => {
   const [contador, setContador] = useState(1);
-  const [nombre, setNombre] = useState("Haga click en empezar");
 
   const sumar = () => {
     if (contador < stock) {
@@ -19,27 +18,12 @@ const CounterContainer = ({ stock }) => {
     }
   };
 
-  // useEffect( ()=>{
-
-  //   // PETICION A UN SERVIDOR
-  // console.log("Se realizo una peticion")
-
-  // } , [] )
-
-  useEffect(() => {
-    // PETICION A UN SERVIDOR
-    console.log("Se realizo una peticion");
-  }, [nombre, contador]); // array de dependencias
-
-  console.log("montaje o actualizacion");
-
   return (
     <CounterPresentacional
       sumar={sumar}
       restar={restar}
       contador={contador}
-      nombre={nombre}
-      setNombre={setNombre}
+      onAdd={onAdd}
     />
   );
 };

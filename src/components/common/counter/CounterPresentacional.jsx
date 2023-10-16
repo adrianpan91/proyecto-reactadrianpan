@@ -1,20 +1,10 @@
-const CounterPresentacional = ({
-  sumar,
-  contador,
-  restar,
-  nombre,
-  setNombre,
-}) => {
+const CounterPresentacional = ({ sumar, contador, restar, onAdd }) => {
   return (
-    <div className="fotos-img">
-      <button onClick={sumar}>sumar</button>
+    <div>
+      <button onClick={sumar}>+</button>
       <h4> {contador} </h4>
-      <button onClick={restar}>restar</button>
-
-      <h4>{nombre}</h4>
-      <button onClick={() => setNombre("Bienvenidos a tienda Flober!")}>
-        Empezar
-      </button>
+      <button onClick={restar}>-</button>
+      <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
     </div>
   );
 };
