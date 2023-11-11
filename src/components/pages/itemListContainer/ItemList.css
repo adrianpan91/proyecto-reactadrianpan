@@ -1,4 +1,11 @@
 .cartas {
   display: flex;
   justify-content: space-between;
+  padding-top: 30px;
+}
+
+.sombras {
+  display: flex;
+  padding-top: 30px;
+  gap: 20px;
 }

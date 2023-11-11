@@ -1,8 +1,26 @@
+import { useEffect, useState } from "react";
 import CartWidget from "../../common/cartWidget/CartWidget";
 import "./Navbar.css";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 export const Navbar = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const categoriesCollection = collection(db, "categories");
+
+    getDocs(categoriesCollection)
+      .then((res) => {
+        let arrayCategories = res.docs.map((category) => {
+          return { ...category.data(), id: category.id };
+        });
+        setCategories(arrayCategories);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <div className={"containerNavbar"}>
@@ -14,7 +32,7 @@ export const Navbar = () => {
           />
         </Link>
         <ul className="categories">
-          <Link to="/">
+          <Link to={"/"}>
             <li>Productos</li>
           </Link>
           <Link to="/category/Sabanas">
